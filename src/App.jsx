@@ -187,40 +187,20 @@ const interestGroups = {
 };
 
 const DEMO_PROFILES = [
-  ["Aarav Shah","Software Engineer","Technology","Web Development","Technology","Passionate Interest"],
-  ["Meera Patel","AI Researcher","Technology","AI & ML","AI & ML","Passionate Interest"],
-  ["Rohan Desai","Startup Founder","Business","Business Strategy","Entrepreneurship","Startup Interest"],
-  ["Ishita Mehta","Product Manager","Business","Product Management","Startups","Startup Interest"],
-  ["Kabir Joshi","Finance Analyst","Finance","Financial Analysis","Finance","Investment Interest"],
-  ["Diya Shah","Angel Investor","Finance","Investment","E-commerce","Investment Interest"],
-  ["Kiara Desai","UX Designer","Design","UI/UX Design","Design","Startup Interest"],
-  ["Reyansh Patel","Fashion Designer","Fashion & Beauty","Fashion Design","Fashion","Passionate Interest"],
-  ["Myra Shah","Content Creator","Media & Content","Content Writing","Media & Content","Passionate Interest"],
-  ["Anaya Mehta","Doctor","Healthcare","Medicine","Healthcare","Passionate Interest"],
-  ["Advik Patel","Scientist","Science & Research","Research","Science","Passionate Interest"],
-  ["Nisha Shah","Robotics Engineer","Engineering","Electronics","Robotics","Startup Interest"],
-  ["Vihaan Patel","Teacher","Education","Teaching","Education","Passionate Interest"],
-  ["Sara Khan","Law Student","Law & Policy","Legal Research","Law & Policy","Passionate Interest"],
-  ["Ayaan Desai","Architect","Architecture & Real Estate","Architecture","Travel & Lifestyle","Startup Interest"],
-  ["Neil Shah","Chef & Founder","Food & Hospitality","Food Business","Food & Hospitality","Startup Interest"],
-  ["Riya Patel","AgriTech Founder","Agriculture & Environment","AgriTech","Agriculture","Startup Interest"],
-  ["Dev Mehta","Artist","Arts & Culture","Fine Arts","Arts & Culture","Passionate Interest"],
-  ["Tara Shah","Fitness Coach","Sports & Wellness","Fitness","Fitness","Passionate Interest"],
-  ["Zoya Patel","Social Impact Founder","Social Impact","Social Entrepreneurship","Social Impact","Startup Interest"],
-  ["Kunal Shah","E-commerce Founder","Business","E-commerce","E-commerce","Startup Interest"],
-  ["Aisha Desai","Marketing Lead","Business","Marketing","Marketing","Startup Interest"],
-  ["Manav Patel","Space Researcher","Science & Research","Physics","Space","Investment Interest"],
-  ["Ira Shah","Community Builder","Social Impact","Community Building","Community Building","Passionate Interest"],
-  ["Veer Mehta","Film Producer","Media & Content","Videography","Film & Entertainment","Startup Interest"],
-  ["Mahi Patel","Mental Wellness Coach","Healthcare","Mental Health","Mental Wellness","Passionate Interest"],
-  ["Yash Shah","Sports Entrepreneur","Sports & Wellness","Sports Management","Sports","Startup Interest"],
-  ["Avni Mehta","Beauty Founder","Fashion & Beauty","Beauty & Cosmetics","Beauty","Startup Interest"],
-  ["Dhruv Patel","Climate Researcher","Agriculture & Environment","Climate","Climate","Investment Interest"],
-  ["Sara Shah","Music Producer","Arts & Culture","Music","Music","Passionate Interest"],
-  ["Kavya Patel","Nutrition Coach","Healthcare","Nutrition","Nutrition","Passionate Interest"],
-  ["Arjun Shah","Sustainability Founder","Agriculture & Environment","Sustainability","Sustainability","Startup Interest"],
-  ["Naman Mehta","Research Fellow","Science & Research","Scientific Writing","Research","Investment Interest"],
-  ["Riya Shah","Travel Creator","Media & Content","Photography","Travel & Lifestyle","Startup Interest"],
+  ["Kunal Shah", "E-commerce Founder", "Business", "E-commerce", "Startups", "Startup Interest"],
+  ["Aisha Desai", "Marketing Lead", "Business", "Marketing", "Startups", "Startup Interest"],
+  ["Manav Patel", "Space Researcher", "Science & Research", "Research", "Space", "Investment Interest"],
+  ["Ira Shah", "Community Builder", "Social Impact", "Community Building", "Social Impact", "Passionate Interest"],
+  ["Veer Mehta", "Film Producer", "Media & Content", "Videography", "Film & Entertainment", "Startup Interest"],
+  ["Mahi Patel", "Mental Wellness Coach", "Healthcare", "Mental Health", "Mental Wellness", "Passionate Interest"],
+  ["Yash Shah", "Sports Entrepreneur", "Sports & Wellness", "Sports Management", "Sports", "Startup Interest"],
+  ["Avni Mehta", "Beauty Founder", "Fashion & Beauty", "Beauty & Cosmetics", "Beauty", "Startup Interest"],
+  ["Dhruv Patel", "Climate Researcher", "Agriculture & Environment", "Climate", "Climate", "Investment Interest"],
+  ["Sara Shah", "Music Producer", "Arts & Culture", "Music", "Music", "Passionate Interest"],
+  ["Kavya Patel", "Nutrition Coach", "Healthcare", "Nutrition", "Nutrition", "Passionate Interest"],
+  ["Arjun Shah", "Sustainability Founder", "Agriculture & Environment", "Sustainability", "Sustainability", "Startup Interest"],
+  ["Naman Mehta", "Research Fellow", "Science & Research", "Scientific Writing", "Research", "Investment Interest"],
+  ["Riya Shah", "Travel Creator", "Media & Content", "Photography", "Travel & Lifestyle", "Startup Interest"],
 ];
 
 function createDemoProfiles() {
@@ -574,20 +554,8 @@ function App() {
         setProfileSaved(true);
         setBackendConnected(true);
 
-        setProfiles((currentProfiles) => {
-          const nextProfiles = currentProfiles.some(
-            (savedProfile) => savedProfile.id === mergedProfile.id
-          )
-            ? currentProfiles.map((savedProfile) =>
-                savedProfile.id === mergedProfile.id
-                  ? mergedProfile
-                  : savedProfile
-              )
-            : [...currentProfiles, mergedProfile];
-
-          saveProfiles(nextProfiles);
-          return nextProfiles;
-        });
+        setProfiles([mergedProfile]);
+saveProfiles([mergedProfile]);
 
         saveProfile(mergedProfile);
       })
@@ -1008,15 +976,7 @@ function App() {
       email: authEmail || profile.email,
     });
 
-    const nextProfiles = profiles.some(
-      (savedProfile) => savedProfile.id === profileToSave.id
-    )
-      ? profiles.map((savedProfile) =>
-          savedProfile.id === profileToSave.id
-            ? profileToSave
-            : savedProfile
-        )
-      : [...profiles, profileToSave];
+    const nextProfiles = [profileToSave];
 
     const locallySaved = saveProfiles(nextProfiles);
 
@@ -1235,8 +1195,59 @@ function App() {
             >
               {profileSaved ? "My profile" : "Get started"}
             </button>
+
+            <button
+  className="nav-link"
+  type="button"
+  onClick={logout}
+>
+  Log out
+</button>
           </div>
-        </header>
+                </header>
+                <nav className="mobile-nav">
+  <button type="button" onClick={() => setPage("discover")}>
+    <span>⌂</span>
+    Explore
+  </button>
+
+  <button type="button" onClick={() => setPage("requests")}>
+    <span>♡</span>
+    Requests
+  </button>
+
+  <button type="button" onClick={() => setPage("chat")}>
+    <span>◌</span>
+    Chat
+  </button>
+
+  <button type="button" onClick={() => setPage("profile")}>
+    <span>●</span>
+    Profile
+  </button>
+</nav>
+
+        <nav className="mobile-nav">
+          <button type="button" onClick={() => requireAuth("discover")}>
+            <span>⌂</span>
+            Explore
+          </button>
+
+          <button type="button" onClick={() => requireAuth("requests")}>
+            <span>♡</span>
+            Requests
+          </button>
+
+          <button type="button" onClick={() => requireAuth("chat")}>
+            <span>◌</span>
+            Chat
+          </button>
+
+          <button type="button" onClick={startProfile}>
+            <span>●</span>
+            Profile
+          </button>
+        </nav>
 
         <main className="hero">
           <section className="hero-copy">
@@ -2476,7 +2487,29 @@ function App() {
           </div>
         </header>
 
-        <main className="profile-page">
+<nav className="mobile-nav">
+  <button type="button" onClick={() => setPage("discover")}>
+    <span>⌂</span>
+    Explore
+  </button>
+
+  <button type="button" onClick={() => setPage("requests")}>
+    <span>♡</span>
+    Requests
+  </button>
+
+  <button type="button" onClick={() => setPage("chat")}>
+    <span>◌</span>
+    Chat
+  </button>
+
+  <button type="button" onClick={() => setPage("profile")}>
+    <span>●</span>
+    Profile
+  </button>
+</nav>
+
+<main className="profile-page">
           <div className="page-topline">
             <button
               className="back-btn"
@@ -2561,63 +2594,7 @@ function App() {
             </button>
           </div>
 
-          {profiles.length > 0 && (
-            <div
-              style={{
-                marginBottom: "28px",
-                padding: "18px 20px",
-                border: "1px solid var(--line)",
-                borderRadius: "20px",
-                background: "var(--surface)",
-              }}
-            >
-              <div style={{ marginBottom: "12px" }}>
-                <span className="mini-label">YOUR PROFILES</span>
-                <strong
-                  style={{
-                    display: "block",
-                    marginTop: "5px",
-                  }}
-                >
-                  {profiles.length} saved profile
-                  {profiles.length === 1 ? "" : "s"}
-                </strong>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "8px",
-                }}
-              >
-                {profiles.map((savedProfile, index) => (
-                  <button
-                    key={savedProfile.id}
-                    type="button"
-                    className={
-                      savedProfile.id === activeProfileId
-                        ? "button button-dark"
-                        : "button button-light"
-                    }
-                    onClick={() =>
-                      openSavedProfile(savedProfile.id)
-                    }
-                  >
-                    {savedProfile.firstName || `Profile ${index + 1}`}
-                  </button>
-                ))}
-
-                <button
-                  type="button"
-                  className="button button-light"
-                  onClick={createNewProfile}
-                >
-                  + Create another
-                </button>
-              </div>
-            </div>
-          )}
+                    <div style={{ marginBottom: "28px" }} />
 
           <div className="profile-layout">
             <div className="profile-card">
@@ -3032,100 +3009,109 @@ function Discover({ setPage, onBack, profile, onLogout }) {
       ).filter((word) => word.length > 2);
     }
 
-    function calculateMatch(person) {
-      const mineSkills = profileSkills(profile);
-      const theirSkills = profileSkills(person);
-      const mineInterests = profileInterests(profile);
-      const theirInterests = profileInterests(person);
+function calculateMatch(person) {
+  const mineSkills = profileSkills(profile);
+  const theirSkills = profileSkills(person);
+  const mineInterests = profileInterests(profile);
+  const theirInterests = profileInterests(person);
 
-      const sharedSkills = theirSkills.filter((skill) =>
-        mineSkills.includes(skill)
-      );
-      const complementarySkills = theirSkills.filter(
-        (skill) => !mineSkills.includes(skill)
-      );
-      const sharedInterests = theirInterests.filter((interest) =>
-        mineInterests.includes(interest)
-      );
+  const sharedSkills = theirSkills.filter((skill) =>
+    mineSkills.includes(skill)
+  );
 
-      const myFocusText = textTokens(
-        `${profile.focusType || ""} ${profile.focusDescription || ""}`
-      );
-      const theirFocusText = textTokens(
-        `${person.focusType || ""} ${person.focusDescription || ""}`
-      );
+  const complementarySkills = theirSkills.filter(
+    (skill) => !mineSkills.includes(skill)
+  );
 
-      const mySignals = new Set([
-        ...myFocusText,
-        ...textTokens(profile.industry),
-        ...textTokens(profile.professionalRole),
-        ...mineSkills,
-        ...mineInterests,
-      ]);
+  const sharedInterests = theirInterests.filter((interest) =>
+    mineInterests.includes(interest)
+  );
 
-      const theirSignals = new Set([
-        ...theirFocusText,
-        ...textTokens(person.industry),
-        ...textTokens(person.professionalRole),
-        ...theirSkills,
-        ...theirInterests,
-      ]);
+  const sameIndustry =
+    Boolean(profile.industry) &&
+    Boolean(person.industry) &&
+    profile.industry.trim().toLowerCase() ===
+      person.industry.trim().toLowerCase();
 
-      const goalOverlap = [...theirSignals].filter((word) =>
-        mySignals.has(word)
-      ).length;
+  const sameLocation =
+    Boolean(profile.location) &&
+    Boolean(person.location) &&
+    profile.location.trim().toLowerCase() ===
+      person.location.trim().toLowerCase();
 
-      const sameIndustry =
-        Boolean(profile.industry) &&
-        Boolean(person.industry) &&
-        profile.industry.toLowerCase() === person.industry.toLowerCase();
+  const sameFocus =
+    Boolean(profile.focusType) &&
+    Boolean(person.focusType) &&
+    profile.focusType === person.focusType;
 
-      const sameLocation =
-        Boolean(profile.location) &&
-        Boolean(person.location) &&
-        profile.location.trim().toLowerCase() === person.location.trim().toLowerCase();
+  const myFocusText = textTokens(
+    `${profile.focusType || ""} ${profile.focusDescription || ""}`
+  );
 
-      // A good teammate is not simply someone identical to you.
-      // We reward useful overlap while strongly rewarding new skills.
-      let score = 28;
-      score += Math.min(sharedSkills.length * 5, 15);
-      score += Math.min(complementarySkills.length * 4, 24);
-      score += Math.min(sharedInterests.length * 4, 16);
-      score += Math.min(goalOverlap * 2, 10);
-      if (sameIndustry) score += 3;
-      if (sameLocation) score += 2;
+  const theirFocusText = textTokens(
+    `${person.focusType || ""} ${person.focusDescription || ""}`
+  );
 
-      const completeness = [
-        person.about,
-        person.focusDescription,
-        person.education,
-        person.professionalRole,
-        person.industry,
-        person.location,
-      ].filter(Boolean).length;
-      score += Math.min(completeness, 6);
+  const focusOverlap = theirFocusText.filter((word) =>
+    myFocusText.includes(word)
+  );
 
-      const roundedScore = Math.max(35, Math.min(Math.round(score), 98));
+  let score = 35;
+  const reasons = [];
 
-      const reasons = [];
-      if (complementarySkills.length > 0) {
-        reasons.push(`Complementary skills: ${complementarySkills.slice(0, 2).map(capitalize).join(" + ")}`);
-      }
-      if (sharedInterests.length > 0) {
-        reasons.push(`Shared interest: ${capitalize(sharedInterests[0])}`);
-      }
-      if (goalOverlap > 0) {
-        reasons.push("Aligned goals");
-      }
-      if (sameIndustry) {
-        reasons.push("Same field");
-      }
+if (sameFocus) score += 15;
+if (sameIndustry) score += 15;
+if (sameLocation) score += 10;
 
-      return {
-        score: roundedScore,
-        reasons: reasons.slice(0, 3),
-      };
-    }
+score += Math.min(sharedSkills.length * 8, 20);
+score += Math.min(complementarySkills.length * 5, 15);
+score += Math.min(sharedInterests.length * 10, 20);
+score += Math.min(focusOverlap.length * 5, 15);
+
+if (
+  profile.focusType === "Investment Interest" &&
+  person.focusType === "Startup Interest"
+) {
+  score += 20;
+}
+
+const roundedScore = Math.min(Math.round(score), 95);
+
+  if (sharedInterests.length > 0) {
+    reasons.push(
+      `Shared interest: ${capitalize(sharedInterests[0])}`
+    );
+  }
+
+  if (complementarySkills.length > 0) {
+    reasons.push(
+      `Complementary skills: ${complementarySkills
+        .slice(0, 2)
+        .map(capitalize)
+        .join(" + ")}`
+    );
+  }
+
+  if (sameIndustry) {
+    reasons.push("Same field");
+  }
+
+  if (sameLocation) {
+    reasons.push("Same location");
+  }
+
+  if (
+    profile.focusType === "Investment Interest" &&
+    person.focusType === "Startup Interest"
+  ) {
+    reasons.push("Startup + investor fit");
+  }
+
+  return {
+    score: roundedScore,
+    reasons: reasons.slice(0, 3),
+  };
+}
 
     function capitalize(value) {
       return String(value || "")
@@ -3265,7 +3251,29 @@ function Discover({ setPage, onBack, profile, onLogout }) {
         </div>
       </header>
 
-      <main className="discover-page">
+<nav className="mobile-nav">
+  <button type="button" onClick={() => setPage("discover")}>
+    <span>⌂</span>
+    Explore
+  </button>
+
+  <button type="button" onClick={() => setPage("requests")}>
+    <span>♡</span>
+    Requests
+  </button>
+
+  <button type="button" onClick={() => setPage("chat")}>
+    <span>◌</span>
+    Chat
+  </button>
+
+  <button type="button" onClick={() => setPage("profile")}>
+    <span>●</span>
+    Profile
+  </button>
+</nav>
+
+<main className="discover-page">
         <div className="page-topline">
           <button className="back-btn" type="button" onClick={onBack}>
             ← Back
@@ -3374,13 +3382,22 @@ function Discover({ setPage, onBack, profile, onLogout }) {
                   )}
 
                   {person.interests.length > 0 && (
-                    <div className="looking">
-                      <small>Interested in</small>
-                      <strong>
-                        {person.interests.slice(0, 2).join(" · ")}
-                      </strong>
-                    </div>
-                  )}
+  <div className="looking">
+    <small>Interested in</small>
+    <strong>
+      {person.interests.slice(0, 2).join(" · ")}
+    </strong>
+  </div>
+)}
+
+{person.prompts?.filter(
+  (prompt) => prompt?.question && prompt?.answer
+).length > 0 && (
+  <div className="looking">
+    <small>{person.prompts[0].question}</small>
+    <strong>{person.prompts[0].answer}</strong>
+  </div>
+)}
 
                   <div className="looking">
                     <small>Focus</small>
@@ -3678,7 +3695,29 @@ function Requests({ setPage, onBack, profile }) {
         </div>
       </header>
 
-      <main className="discover-page">
+<nav className="mobile-nav">
+  <button type="button" onClick={() => setPage("discover")}>
+    <span>⌂</span>
+    Explore
+  </button>
+
+  <button type="button" onClick={() => setPage("requests")}>
+    <span>♡</span>
+    Requests
+  </button>
+
+  <button type="button" onClick={() => setPage("chat")}>
+    <span>◌</span>
+    Chat
+  </button>
+
+  <button type="button" onClick={() => setPage("profile")}>
+    <span>●</span>
+    Profile
+  </button>
+</nav>
+
+<main className="discover-page">
         <div className="page-topline">
           <button
             className="back-btn"
@@ -4101,39 +4140,61 @@ function Chat({ setPage, onBack, profile }) {
         </button>
 
         <div className="nav-actions">
-          <button
-            className="nav-link"
-            type="button"
-            onClick={() => setPage("discover")}
-          >
-            Explore
-          </button>
+  <button
+    className="nav-link"
+    type="button"
+    onClick={() => setPage("discover")}
+  >
+    Explore
+  </button>
 
-          <button
-            className="nav-link"
-            type="button"
-            onClick={() => setPage("requests")}
-          >
-            ♥ Requests
-          </button>
+  <button
+    className="nav-link"
+    type="button"
+    onClick={() => setPage("requests")}
+  >
+    ♥ Requests
+  </button>
 
-          <button
-            className="nav-link"
-            type="button"
-            onClick={() => setPage("chat")}
-          >
-            Chat
-          </button>
+  <button
+    className="nav-link"
+    type="button"
+    onClick={() => setPage("chat")}
+  >
+    Chat
+  </button>
 
-          <button
-            className="nav-link"
-            type="button"
-            onClick={() => setPage("profile")}
-          >
-            Profile
-          </button>
-        </div>
-      </header>
+  <button
+    className="nav-link"
+    type="button"
+    onClick={() => setPage("profile")}
+  >
+    Profile
+  </button>
+</div>
+           </header>
+
+      <nav className="mobile-nav">
+        <button type="button" onClick={() => setPage("discover")}>
+          <span>⌂</span>
+          Explore
+        </button>
+
+        <button type="button" onClick={() => setPage("requests")}>
+          <span>♡</span>
+          Requests
+        </button>
+
+        <button type="button" onClick={() => setPage("chat")}>
+          <span>◌</span>
+          Chat
+        </button>
+
+         <button type="button" onClick={() => setPage("profile")}>
+          <span>●</span>
+          Profile
+        </button>
+      </nav>
 
       <main className="discover-page">
         <div className="page-topline">

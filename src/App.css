@@ -1,6 +1,6 @@
 
 /* =========================================================
-   TEAMMATCH — ADORABLE + PROFESSIONAL PRODUCT SYSTEM
+   TEAMMATCH â€” ADORABLE + PROFESSIONAL PRODUCT SYSTEM
    Soft editorial / boutique startup / friendly SaaS
    ========================================================= */
 
@@ -1129,7 +1129,7 @@ textarea {
 }
 
 /* =========================================================
-   SKILLS — CLEAN COLLAPSIBLE STYLE
+   SKILLS â€” CLEAN COLLAPSIBLE STYLE
    ========================================================= */
 
 .skill-category-list {
@@ -1304,7 +1304,7 @@ textarea {
 }
 
 /* =========================================================
-   INTERESTS — SAME CLEAN PATTERN
+   INTERESTS â€” SAME CLEAN PATTERN
    ========================================================= */
 
 .interest-grid .choice {
@@ -2525,7 +2525,7 @@ textarea {
 }
 
 /* =========================================================
-   STEP 8 — 4 x 2 SKILL AREA LAYOUT
+   STEP 8 â€” 4 x 2 SKILL AREA LAYOUT
    ========================================================= */
 
 .skill-area-selector {
@@ -2682,7 +2682,7 @@ textarea {
 }
 
 /* =========================================================
-   STEP 9 — CLEAN INTEREST GRID
+   STEP 9 â€” CLEAN INTEREST GRID
    ========================================================= */
 
 .interest-option-grid {
@@ -2897,7 +2897,7 @@ textarea {
 }
 
 /* =========================================================
-   STEP 13 — TWO PHOTO OPTIONS
+   STEP 13 â€” TWO PHOTO OPTIONS
    ========================================================= */
 
 .photo-upload-grid {
@@ -3204,7 +3204,7 @@ textarea {
 }
 
 /* =========================================================
-   FIND TEAMMATES — REFINED DISCOVERY UI
+   FIND TEAMMATES â€” REFINED DISCOVERY UI
    ========================================================= */
 
 .discover-heading {
@@ -3606,92 +3606,4 @@ textarea {
     height: 65vh;
     min-height: 65vh !important;
   }
-}
-/* Add these styles to App.css */
-.prompt-builder { display:grid; gap:18px; }
-.prompt-card { border:1px solid #e7e7e7; border-radius:18px; padding:20px; background:#fff; }
-.prompt-card-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; font-weight:700; }
-.prompt-selected { font-size:12px; color:#555; }
-.prompt-card label { display:block; margin-top:14px; }
-.prompt-label { display:block; margin-bottom:8px; font-size:13px; font-weight:700; }
-.prompt-card select, .prompt-card textarea { width:100%; box-sizing:border-box; }
-.prompt-requirement { display:flex; flex-direction:column; gap:4px; padding:14px 16px; border-radius:14px; background:#f5f5f5; }
-.prompt-requirement span { font-size:13px; color:#666; }
-.profile-prompts { display:grid; gap:16px; }
-.profile-prompt-card { padding:20px; border:1px solid #e7e7e7; border-radius:18px; background:#fff; }
-.profile-prompt-card .prompt-question { display:block; font-weight:700; margin-bottom:9px; }
-.profile-prompt-card p { margin:0; line-height:1.6; }
-
-/* Add these styles to App.css */
-.profile-focus-badge,
-.discover-focus-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  width: fit-content;
-  padding: 7px 11px;
-  border: 1px solid #e5e5e5;
-  border-radius: 999px;
-  background: #fff;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.profile-focus-symbol {
-  font-size: 16px;
-  line-height: 1;
-}
-
-.discover-focus-badge {
-  margin-bottom: 8px;
-}
-
-.discover-focus-badge span {
-  font-size: 16px;
-  line-height: 1;
-}
-
-.discover-focus-badge small {
-  font-size: 11px;
-  font-weight: 700;
-}
-
-/* Add these styles to App.css */
-.profile-focus-badge,
-.discover-focus-badge {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  width: fit-content;
-  padding: 8px 13px;
-  margin: 0 0 14px 0;
-  border: 1px solid #dcdcdc;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #111111;
-  font-size: 12px;
-  font-weight: 700;
-  visibility: visible;
-  opacity: 1;
-}
-
-.profile-focus-symbol,
-.discover-focus-symbol {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  font-size: 18px;
-  line-height: 1;
-  visibility: visible;
-  opacity: 1;
-}
-
-.discover-focus-badge {
-  margin-bottom: 12px;
-}
-
-.discover-focus-badge strong {
-  font-size: 12px;
 }
