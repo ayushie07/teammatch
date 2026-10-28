@@ -1207,7 +1207,12 @@ saveProfiles([mergedProfile]);
                 </header>
                 <nav className="mobile-nav">
   <button type="button" onClick={() => setPage("discover")}>
-    <span>⌂</span>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9" />
+    <path d="m15.5 8.5-2.3 4.7-4.7 2.3 2.3-4.7 4.7-2.3Z" />
+  </svg>
+</span>
     Explore
   </button>
 
@@ -1217,19 +1222,44 @@ saveProfiles([mergedProfile]);
   </button>
 
   <button type="button" onClick={() => setPage("chat")}>
-    <span>◌</span>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.7 8.7 0 0 1-4-.98L3 21l1.98-5.5A8.5 8.5 0 1 1 21 11.5Z" />
+  </svg>
+</span>
     Chat
   </button>
 
   <button type="button" onClick={() => setPage("profile")}>
-    <span>●</span>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24"
+    fill="none" stroke="currentColor" strokeWidth="1.8"
+    strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="8" r="4" />
+    <path d="M5 21v-2a7 7 0 0 1 14 0v2" />
+  </svg>
+</span>
     Profile
   </button>
 </nav>
 
         <nav className="mobile-nav">
           <button type="button" onClick={() => requireAuth("discover")}>
-            <span>⌂</span>
+            <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9" />
+    <path d="m15.5 8.5-2.3 4.7-4.7 2.3 2.3-4.7 4.7-2.3Z" />
+  </svg>
+</span>
             Explore
           </button>
 
@@ -1239,12 +1269,30 @@ saveProfiles([mergedProfile]);
           </button>
 
           <button type="button" onClick={() => requireAuth("chat")}>
-            <span>◌</span>
+            <span className="chat-nav-icon" aria-hidden="true">
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.7 8.7 0 0 1-4-.98L3 21l1.98-5.5A8.5 8.5 0 1 1 21 11.5Z" />
+  </svg>
+</span>
             Chat
           </button>
 
           <button type="button" onClick={startProfile}>
-            <span>●</span>
+            <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="8" r="4" />
+    <path d="M5 21v-2a7 7 0 0 1 14 0v2" />
+  </svg>
+</span>
             Profile
           </button>
         </nav>
@@ -2488,23 +2536,46 @@ saveProfiles([mergedProfile]);
         </header>
 
 <nav className="mobile-nav">
-  <button type="button" onClick={() => setPage("discover")}>
-    <span>⌂</span>
+  <button type="button" className={page === "discover" ? "active" : ""} onClick={() => setPage("discover")}>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9" />
+    <path d="m15.5 8.5-2.3 4.7-4.7 2.3 2.3-4.7 4.7-2.3Z" />
+  </svg>
+</span>
     Explore
   </button>
 
-  <button type="button" onClick={() => setPage("requests")}>
+  <button type="button" className={page === "requests" ? "active" : ""} onClick={() => setPage("requests")}>
     <span>♡</span>
     Requests
   </button>
 
-  <button type="button" onClick={() => setPage("chat")}>
-    <span>◌</span>
+  <button type="button" className={page === "chat" ? "active" : ""} onClick={() => setPage("chat")}>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.7 8.7 0 0 1-4-.98L3 21l1.98-5.5A8.5 8.5 0 1 1 21 11.5Z" />
+  </svg>
+</span>
     Chat
   </button>
 
-  <button type="button" onClick={() => setPage("profile")}>
-    <span>●</span>
+  <button type="button" className={page === "profile" ? "active" : ""} onClick={() => setPage("profile")}>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="8" r="4" />
+    <path d="M5 21v-2a7 7 0 0 1 14 0v2" />
+  </svg>
+</span>
     Profile
   </button>
 </nav>
@@ -2757,7 +2828,7 @@ saveProfiles([mergedProfile]);
   }
 
   if (page === "requests") {
-    return <Requests setPage={setPage} onBack={back} profile={profile} />;
+    return <Requests setPage={setPage} onBack={back} profile={profile} page={page} />;
   }
 
   if (page === "chat") {
@@ -3253,7 +3324,12 @@ const roundedScore = Math.min(Math.round(score), 95);
 
 <nav className="mobile-nav">
   <button type="button" onClick={() => setPage("discover")}>
-    <span>⌂</span>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9" />
+    <path d="m15.5 8.5-2.3 4.7-4.7 2.3 2.3-4.7 4.7-2.3Z" />
+  </svg>
+</span>
     Explore
   </button>
 
@@ -3263,12 +3339,30 @@ const roundedScore = Math.min(Math.round(score), 95);
   </button>
 
   <button type="button" onClick={() => setPage("chat")}>
-    <span>◌</span>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.7 8.7 0 0 1-4-.98L3 21l1.98-5.5A8.5 8.5 0 1 1 21 11.5Z" />
+  </svg>
+</span>
     Chat
   </button>
 
   <button type="button" onClick={() => setPage("profile")}>
-    <span>●</span>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="8" r="4" />
+    <path d="M5 21v-2a7 7 0 0 1 14 0v2" />
+  </svg>
+</span>
     Profile
   </button>
 </nav>
@@ -3522,7 +3616,7 @@ const roundedScore = Math.min(Math.round(score), 95);
 }
 
 
-function Requests({ setPage, onBack, profile }) {
+function Requests({ setPage, onBack, profile, page }) {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -3696,23 +3790,46 @@ function Requests({ setPage, onBack, profile }) {
       </header>
 
 <nav className="mobile-nav">
-  <button type="button" onClick={() => setPage("discover")}>
-    <span>⌂</span>
+  <button type="button" className={page === "discover" ? "active" : ""} onClick={() => setPage("discover")}>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9" />
+    <path d="m15.5 8.5-2.3 4.7-4.7 2.3 2.3-4.7 4.7-2.3Z" />
+  </svg>
+</span>
     Explore
   </button>
 
-  <button type="button" onClick={() => setPage("requests")}>
+  <button type="button" className={page === "requests" ? "active" : ""} onClick={() => setPage("requests")}>
     <span>♡</span>
     Requests
   </button>
 
-  <button type="button" onClick={() => setPage("chat")}>
-    <span>◌</span>
+  <button type="button" className={page === "chat" ? "active" : ""} onClick={() => setPage("chat")}>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.7 8.7 0 0 1-4-.98L3 21l1.98-5.5A8.5 8.5 0 1 1 21 11.5Z" />
+  </svg>
+</span>
     Chat
   </button>
 
   <button type="button" onClick={() => setPage("profile")}>
-    <span>●</span>
+    <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="8" r="4" />
+    <path d="M5 21v-2a7 7 0 0 1 14 0v2" />
+  </svg>
+</span>
     Profile
   </button>
 </nav>
@@ -4176,7 +4293,12 @@ function Chat({ setPage, onBack, profile }) {
 
       <nav className="mobile-nav">
         <button type="button" onClick={() => setPage("discover")}>
-          <span>⌂</span>
+          <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9" />
+    <path d="m15.5 8.5-2.3 4.7-4.7 2.3 2.3-4.7 4.7-2.3Z" />
+  </svg>
+</span>
           Explore
         </button>
 
@@ -4186,12 +4308,30 @@ function Chat({ setPage, onBack, profile }) {
         </button>
 
         <button type="button" onClick={() => setPage("chat")}>
-          <span>◌</span>
+          <span className="chat-nav-icon" aria-hidden="true">
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.7 8.7 0 0 1-4-.98L3 21l1.98-5.5A8.5 8.5 0 1 1 21 11.5Z" />
+  </svg>
+</span>
           Chat
         </button>
 
          <button type="button" onClick={() => setPage("profile")}>
-          <span>●</span>
+          <span className="chat-nav-icon" aria-hidden="true">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="8" r="4" />
+    <path d="M5 21v-2a7 7 0 0 1 14 0v2" />
+  </svg>
+</span>
           Profile
         </button>
       </nav>
